@@ -1,25 +1,35 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { Contact, ContactStatus } from '../models/contact';
+import { Contact } from '../models/contact';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
 
-  collection: BehaviorSubject<Contact[]> = new BehaviorSubject<Contact[]>([
-    { firstName: 'Humberto', lastName: 'Maury', phoneNumber: 123456789, email: 'hmaury1@gmail.com', status: ContactStatus.Active },
-    { firstName: 'Humberto', lastName: 'Maury', phoneNumber: 123456789, email: 'hmaury1@gmail.com', status: ContactStatus.Active },
-    { firstName: 'Humberto', lastName: 'Maury', phoneNumber: 123456789, email: 'hmaury1@gmail.com', status: ContactStatus.Active },
-    { firstName: 'Humberto', lastName: 'Maury', phoneNumber: 123456789, email: 'hmaury1@gmail.com', status: ContactStatus.Active }
-  ]);
+  collection: BehaviorSubject<Contact[]>;
 
-  constructor() { }
+  constructor() {
+    this.collection =  new BehaviorSubject<Contact[]>([]);
+    this.load();
+  }
+
+  private load(): void {
+    const memoryData = localStorage.getItem('contactColletion');
+    if (memoryData) {
+      this.collection.next(JSON.parse(memoryData));
+    }
+  }
+
+  private save(): void {
+    localStorage.setItem('contactColletion', JSON.stringify(this.collection.value));
+  }
 
   add(value: Contact): void {
     const list = this.collection.value;
     list.push(value)
     this.collection.next(list)
+    this.save()
   }
 
   delete(index: number): void {
