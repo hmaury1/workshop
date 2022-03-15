@@ -1,0 +1,15 @@
+.header {
+  color: white;
+  background-color: darkred;
+  height: 68px;
+
+  h1 {
+    margin: 0;
+    padding: 15px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}

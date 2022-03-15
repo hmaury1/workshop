@@ -1,0 +1,49 @@
+form {
+  width: 200px ;
+  background-color: white;
+  padding: 15px;
+  height: calc(100vh - 98px);
+
+  .group {
+    margin-bottom: 15px;
+    input {
+      outline: none;
+      display: block;
+      background: rgba(0, 0, 0, 0.1);
+      width: 100%;
+      border: 0;
+      border-radius: 4px;
+      box-sizing: border-box;
+      padding: 12px 20px;
+      color: rgba(0, 0, 0, 0.6);
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 500;
+      line-height: inherit;
+      transition: 0.3s ease;
+
+      &.ng-invalid.ng-touched {
+        border-radius: 2px;
+        border: 1px solid red;
+      }
+    }
+
+    label {
+      display: block;
+      margin: 0 0 10px;
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+  }
+  }
+
+  button {
+    margin-right: 15px;
+  }
+}
+.form-group input {
+
+}

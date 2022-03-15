@@ -1,0 +1,20 @@
+<form [formGroup]="contactForm">
+  <div class="group">
+    <label>First Name</label>
+    <input type="text" formControlName="firstName">
+  </div>
+  <div class="group">
+    <label>Last Name</label>
+    <input type="text" formControlName="lastName">
+  </div>
+  <div class="group">
+    <label>Phone Number</label>
+    <input type="number" formControlName="phoneNumber">
+  </div>
+  <div class="group">
+    <label>Email</label>
+    <input type="text" formControlName="email">
+  </div>
+  <button (click)="add()" [disabled]="contactForm.invalid"> <i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+  <button (click)="clear()" [disabled]="isEmpty()"><i class="fa fa-times" aria-hidden="true"></i>Clear</button>
+</form>

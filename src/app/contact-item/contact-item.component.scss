@@ -1,0 +1,11 @@
+  .row {
+    background-color: white;
+    margin: 15px;
+    border-radius: 5px;
+    .col {
+      display: inline-block;
+      width: 180px;
+      margin: 15px;
+      border-right: solid 1px gray;
+    }
+  }

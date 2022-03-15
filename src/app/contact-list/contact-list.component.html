@@ -1,0 +1,10 @@
+<div>
+  <div class="row">
+    <div class="col">First Name</div>
+    <div class="col">Last Name</div>
+    <div class="col">Phone Number</div>
+    <div class="col">Email</div>
+    <div class="col">Actions</div>
+  </div>
+  <app-contact-item *ngFor="let item of data ; let i = index" [data]="item" [index]="i"></app-contact-item>
+</div>
